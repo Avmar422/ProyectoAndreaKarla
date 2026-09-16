@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookFlow</title>
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <img src="../src/assets/logo.png" alt="Logo" />
+      </div>
+
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Catálogo</a></li>
+        <li><a href="#">Cuenta</a></li>
+        <li><a href="#">Configuración</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header class="header-main">
+        <h1>Book Catalog</h1>
+
+        <div class="filters">
+          <select name="availability" id="availability-filter">
+            <option>All</option>
+            <option>Available</option>
+            <option>Borrowed</option>
+            <option>Reserved</option>
+          </select>
+          
+          <select name="genre" id="genre-filter">
+            <option>All</option>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Mystery</option>
+            <option>Sci-Fi</option>
+            <option>Biography</option>
+          </select>
+
+          <input
+          type="search"
+          placeholder="Search by title, author, or ISBN..."
+          id="search-box"/>
+
+        </div>
+      </header>
+
+      <section class="book-list" id="book-list">
+      </section>
+    </main>
+  </body>
+
