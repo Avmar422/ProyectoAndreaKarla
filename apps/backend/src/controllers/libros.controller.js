@@ -95,25 +95,50 @@ const createLibro = async (req, res) => {
 
 const borrowLibro = async (req, res) => {
   try {
-    const { id } = req.params;
-    const libros = await leerJson(librosPath);
-    const libro = libros.find(l => l.id == id);
+    const id = Number(req.params.id);
+    const { usuario } = req.body || {};
 
-    if (!libro) return res.status(404).json({ error: "Libro no encontrado" });
+    if (!Number.isInteger(id) || id < 1) {
+      return res.status(400).json({ error: "El ID debe ser un número entero válido" });
+    }
+
+    if (typeof usuario !== "string" || !usuario.trim()) {
+      return res.status(400).json({ error: "El campo 'usuario' es obligatorio para realizar el préstamo" });
+    }
+
+    const libros = await leerJson(librosPath);
+    const libro = libros.find(l => l.id === id);
+
+    if (!libro) {
+      return res.status(404).json({ error: "Libro no encontrado" });
+    }
 
     if (libro.disponibilidad === "No disponible") {
       return res.status(400).json({ error: "El libro ya está prestado." });
     }
 
+    if (!Array.isArray(libro.prestamos)) {
+      libro.prestamos = [];
+    }
+
+    const nuevoPrestamo = {
+      usuario: usuario.trim(),
+      fecha_prestamo: new Date().toISOString().split("T")[0] 
+    };
+
+    libro.prestamos.push(nuevoPrestamo);
     libro.disponibilidad = "No disponible";
+
     await escribirJson(librosPath, libros);
 
-    return res.json({ message: "Préstamo realizado con éxito (POST)", libro });
+    return res.json({ 
+      message: "Préstamo registrado con éxito", 
+      libro 
+    });
   } catch (error) {
     return res.status(500).json({ error: "Error al procesar el préstamo" });
   }
 };
-
 
 // PUT 
 const updateLibro = async (req, res) => {
