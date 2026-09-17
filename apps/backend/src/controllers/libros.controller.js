@@ -1,7 +1,7 @@
 const path = require("path");
-const { leerJson, escribirJson } = require("../src/utils/fileStorage");
+const { leerJson, escribirJson } = require("..utils/fileStorage");
 
-const librosPath = path.join(__dirname, "../src/data/libros.json");
+const librosPath = path.join(__dirname, "..data/libros.json");
 
 // GET
 const getLibros = async (req, res) => {
