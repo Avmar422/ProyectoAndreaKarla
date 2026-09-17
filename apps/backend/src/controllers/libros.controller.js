@@ -95,41 +95,25 @@ const createLibro = async (req, res) => {
 
 const borrowLibro = async (req, res) => {
   try {
-    const libroId = parseInt(req.params.id);
+    const { id } = req.params;
+    const libros = await leerJson(librosPath);
+    const libro = libros.find(l => l.id == id);
 
-    if (!Number.isInteger(libroId) || libroId < 1) {
-      return res.status(400).json({ error: "El ID debe ser un número entero válido" });
+    if (!libro) return res.status(404).json({ error: "Libro no encontrado" });
+
+    if (libro.disponibilidad === "No disponible") {
+      return res.status(400).json({ error: "El libro ya está prestado." });
     }
 
-    const { usuario } = req.body || {};
-    let libros = await leerJson(librosPath);
-
-    const libro = libros.find(l => l.id === libroId);
-    if (!libro) {
-      return res.status(404).json({ error: 'Libro no encontrado' });
-    }
-
-    if (libro.disponibilidad !== 'Disponible') {
-      return res.status(400).json({ error: 'El libro no está disponible para préstamo' });
-    }
-
-    libro.disponibilidad = 'No disponible';
-    
-    if (!libro.prestamos) {
-      libro.prestamos = [];
-    }
-
-    libro.prestamos.push({
-      usuario: usuario ? usuario.trim() : 'Anónimo',
-      fecha_prestamo: new Date().toISOString().split('T')[0]
-    });
-
+    libro.disponibilidad = "No disponible";
     await escribirJson(librosPath, libros);
-    res.json({ message: 'Préstamo registrado con éxito', libro });
+
+    return res.json({ message: "Préstamo realizado con éxito (POST)", libro });
   } catch (error) {
-    res.status(500).json({ error: 'Error al procesar el préstamo' });
+    return res.status(500).json({ error: "Error al procesar el préstamo" });
   }
 };
+
 
 // PUT 
 const updateLibro = async (req, res) => {
@@ -165,8 +149,9 @@ const updateLibro = async (req, res) => {
     return res.status(400).json({ error: `Estado incorrecto, los estados correctos son: ${estadosValidos.join(", ")}` });
   }
 
-  if (disponibilidad !== undefined && (typeof disponibilidad !== "string" || !disponibilidad.trim())) {
-    return res.status(400).json({ error: "El campo Disponibilidad debe contener texto válido" });
+  const disponibilidadesValidas = ["Disponible", "No disponible"];
+  if (disponibilidad !== undefined && (typeof disponibilidad !== "string" || !disponibilidad.trim() || !disponibilidadesValidas.includes(disponibilidad.trim()))) {
+    return res.status(400).json({ error: `Disponibilidad incorrecta. Los valores permitidos son: ${disponibilidadesValidas.join(", ")}` });
   }
 
   try {
@@ -185,9 +170,37 @@ const updateLibro = async (req, res) => {
     if (disponibilidad !== undefined) libro.disponibilidad = disponibilidad.trim();
 
     await escribirJson(librosPath, libros);
-    res.json(libro);
+    return res.json(libro);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+const returnLibro = async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id < 1) {
+      return res.status(400).json({ error: "El ID debe ser un número entero válido" });
+    }
+
+    const libros = await leerJson(librosPath);
+    const libro = libros.find(l => l.id === id);
+
+    if (!libro) {
+      return res.status(404).json({ error: "Libro no encontrado" });
+    }
+
+    if (libro.disponibilidad === "Disponible") {
+      return res.status(400).json({ error: "El libro ya se encontraba disponible." });
+    }
+
+    libro.disponibilidad = "Disponible";
+    await escribirJson(librosPath, libros);
+
+    return res.json({ message: "Devolución registrada con éxito (PUT)", libro });
+  } catch (error) {
+    return res.status(500).json({ error: "Error al procesar la devolución" });
   }
 };
 
@@ -223,4 +236,5 @@ module.exports = {
   updateLibro,
   deleteLibro,
   borrowLibro,
+  returnLibro,
 };

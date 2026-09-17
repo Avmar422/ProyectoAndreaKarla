@@ -8,5 +8,6 @@ router.post("/", librosController.createLibro);
 router.put("/:id", librosController.updateLibro);
 router.delete("/:id", librosController.deleteLibro);
 router.post("/:id/borrow", librosController.borrowLibro);
+router.put("/:id/return", librosController.returnLibro);
 
 module.exports = router;
