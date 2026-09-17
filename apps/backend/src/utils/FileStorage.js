@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-const dataPath = path.join(__dirname, '../../data/libros.json');
+const dataPath = path.join(__dirname, '../data/libros.json');
 
 const leerJson = async (filePath, defaultValue = []) => {
   try {

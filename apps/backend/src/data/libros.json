@@ -71,8 +71,13 @@
     "genero": "No ficción / Ciencia",
     "sinopsis": "Una obra que revolucionó la biología al proponer que la evolución se centra en los genes y no en los individuos, moldeando nuestro comportamiento.",
     "estado": "Malo",
-    "disponibilidad": "Disponible",
-    "prestamos": []
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "Arturo",
+        "fecha_prestamo": "2026-09-17"
+      }
+    ]
   },
   {
     "id": 8,
@@ -273,5 +278,15 @@
         "fecha_prestamo": "2026-06-05"
       }
     ]
+  },
+  {
+    "id": 26,
+    "titulo": "Fahrenheit 451",
+    "autor": "Ray Bradbury",
+    "genero": "Ciencia ficción",
+    "sinopsis": "Una novela distópica que presenta un futuro donde los libros están prohibidos y quemados.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
   }
 ]
