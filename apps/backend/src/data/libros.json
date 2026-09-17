@@ -287,6 +287,11 @@
         "usuario": "Lucía Méndez",
         "fecha_prestamo": "2026-06-05",
         "fecha_devolucion": "2026-09-17"
+      },
+      {
+        "usuario": "María Pérez",
+        "fecha_prestamo": "2026-09-17",
+        "fecha_devolucion": "2026-09-17"
       }
     ]
   }
