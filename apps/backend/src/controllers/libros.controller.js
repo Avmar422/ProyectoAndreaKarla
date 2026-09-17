@@ -220,17 +220,12 @@ const returnLibro = async (req, res) => {
     if (libro.disponibilidad === "Disponible") {
       return res.status(400).json({ error: "El libro ya se encontraba disponible." });
     }
-
     
     if (!Array.isArray(libro.prestamos)) {
       libro.prestamos = [];
     }
 
-    console.log("PRESTAMOS ACTUALES EN EL LIBRO:", libro.prestamos);
-
-
     const prestamoActivo = libro.prestamos.slice().reverse().find(p => !p.fecha_devolucion);
-
     const fechaHoy = new Date().toISOString().split("T")[0];
 
     if (prestamoActivo) {
@@ -245,8 +240,6 @@ const returnLibro = async (req, res) => {
 
     libro.disponibilidad = "Disponible";
 
-    console.log("LIBRO A GUARDAR:", libro);
-
     await escribirJson(librosPath, libros);
 
     return res.json({ 
@@ -254,7 +247,6 @@ const returnLibro = async (req, res) => {
       libro 
     });
   } catch (error) {
-    console.error("ERROR EN RETURN:", error);
     return res.status(500).json({ error: "Error al procesar la devolución" });
   }
 };
