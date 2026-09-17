@@ -201,6 +201,7 @@ const updateLibro = async (req, res) => {
   }
 };
 
+// PUT PRESTAMO
 const returnLibro = async (req, res) => {
   try {
     const id = Number(req.params.id);
@@ -220,11 +221,40 @@ const returnLibro = async (req, res) => {
       return res.status(400).json({ error: "El libro ya se encontraba disponible." });
     }
 
+    
+    if (!Array.isArray(libro.prestamos)) {
+      libro.prestamos = [];
+    }
+
+    console.log("PRESTAMOS ACTUALES EN EL LIBRO:", libro.prestamos);
+
+
+    const prestamoActivo = libro.prestamos.slice().reverse().find(p => !p.fecha_devolucion);
+
+    const fechaHoy = new Date().toISOString().split("T")[0];
+
+    if (prestamoActivo) {
+      prestamoActivo.fecha_devolucion = fechaHoy;
+    } else {
+      libro.prestamos.push({
+        usuario: "Usuario desconocido (Devolución directa)",
+        fecha_prestamo: fechaHoy,
+        fecha_devolucion: fechaHoy
+      });
+    }
+
     libro.disponibilidad = "Disponible";
+
+    console.log("LIBRO A GUARDAR:", libro);
+
     await escribirJson(librosPath, libros);
 
-    return res.json({ message: "Devolución registrada con éxito (PUT)", libro });
+    return res.json({ 
+      message: "Devolución registrada con éxito", 
+      libro 
+    });
   } catch (error) {
+    console.error("ERROR EN RETURN:", error);
     return res.status(500).json({ error: "Error al procesar la devolución" });
   }
 };
