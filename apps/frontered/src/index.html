@@ -26,19 +26,19 @@
 
         <div class="filters">
           <select name="availability" id="availability-filter">
-            <option>All</option>
-            <option>Available</option>
-            <option>Borrowed</option>
-            <option>Reserved</option>
+            <option>Todos</option>
+            <option>Disponible</option>
+            <option>Prestado</option>
+            <option>Reservado</option>
           </select>
           
           <select name="genre" id="genre-filter">
-            <option>All</option>
-            <option>Fiction</option>
-            <option>Non-Fiction</option>
-            <option>Mystery</option>
-            <option>Sci-Fi</option>
-            <option>Biography</option>
+            <option>Todos</option>
+            <option>Ficción</option>
+            <option>No Ficción</option>
+            <option>Misterio</option>
+            <option>Ciencia Ficción</option>
+            <option>Biografía</option>
           </select>
 
           <input
@@ -48,6 +48,20 @@
 
         </div>
       </header>
+
+      <section>
+        <div class="add-book">
+          <h2>Add New Book</h2>
+          <form id="add-book-form">
+            <input type="text" id="title" placeholder="Title" required />
+            <input type="text" id="author" placeholder="Author" required />
+            <input type="text" id="genre" placeholder="Genre" required />
+            <input type="text" id="synopsis" placeholder="Synopsis" required />
+            <input type="text" id="status" placeholder="Status" required />
+            <input type="text" id="availability" placeholder="Availability" required />
+            <button type="submit">Add Book</button>
+          </form>
+      </section>
 
       <section class="book-list" id="book-list">
       </section>
