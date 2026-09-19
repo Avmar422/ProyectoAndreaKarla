@@ -258,7 +258,7 @@ body {
   margin-bottom: 10px;
 }
 
-.add-book button {
+.btn {
   padding: 10px 14px;
   background-color: var(--accent-cyan);
   color: #fff;
@@ -269,6 +269,6 @@ body {
   transition: opacity 0.2s;
 }
 
-.add-book button:hover {
+.btn:hover {
   opacity: 0.9;
 }
