@@ -18,7 +18,7 @@ const display = (books) => {
 
         item.innerHTML = `
           <div class="book-card-content">
-            <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
+            <img src="https://via.placeholder.com/150x200?text=Sin+Portada" alt="Cover" class="book-cover" />
             <div class="book-info">
               <h2 class="book-title">${book.titulo}</h2>
               <p class="book-author">Autor: ${book.autor}</p>
