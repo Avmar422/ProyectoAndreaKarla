@@ -114,33 +114,9 @@ formBook.addEventListener('submit', async (event) => {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            const newBook = data.libro;
-            
-            const item = document.createElement('div');
-            item.className = 'book-card';
-            
-            const statusClass = newBook.estado === 'Bueno' ? 'status-available' : 'status-borrowed';
-
-            item.innerHTML = `
-              <div class="book-card-content">
-                <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
-                <div class="book-info">
-                  <h2 class="book-title">${newBook.titulo} (Nuevo)</h2>
-                  <p class="book-author">Autor: ${newBook.autor}</p>   
-                  <span class="badge-genre">${newBook.genero}</span>    
-                  <span class="badge-status ${statusClass}">${newBook.estado}</span> 
-                  <p class="copies-left">Disponibilidad: ${newBook.disponibilidad}</p> 
-                </div>
-              </div>
-              <div class="card-actions">
-                <button class="btn-borrow" onclick="borrowBook(${newBook.id})">Prestar</button>
-                <button class="btn-return" onclick="deleteBook(${newBook.id})">Eliminar</button>
-              </div>
-            `;
-            
-            bookList.prepend(item);
-            formBook.reset();
+            formBook.reset();         
+            obtenerBooks();           
+            bookList.scrollIntoView({ behavior: 'smooth' }); 
         } else {
             const errorText = await response.text();
             console.error('Error al registrar el libro:', errorText);
