@@ -25,7 +25,6 @@ const obtenerBooks = async () => {
 
             item.innerHTML = `
               <div class="book-card-content">
-                <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
                 <div class="book-info">
                   <h2 class="book-title">${book.title}</h2>
                   <p class="book-author">Autor: ${book.author}</p>
