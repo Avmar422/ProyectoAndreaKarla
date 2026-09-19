@@ -11,10 +11,37 @@ const obtenerBooks = async () => {
     try {
         bookList.innerHTML = '<p style="color: #c8a051;">Cargando catálogo de libros...</p>';  
         const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Error al obtener los libros');
-        const books = await response.json();
         
-        displayBooks(books);
+        if (!response.ok) throw new Error('Error al obtener los libros');
+        
+        const books = await response.json();
+        bookList.innerHTML = '';
+
+        for (let book of books) {
+            const item = document.createElement('div');
+            item.className = 'book-card';
+            
+            const statusClass = book.status === 'Disponible' ? 'status-available' : 'status-borrowed';
+
+            item.innerHTML = `
+              <div class="book-card-content">
+                <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
+                <div class="book-info">
+                  <h2 class="book-title">${book.title}</h2>
+                  <p class="book-author">Autor: ${book.author}</p>
+                  <span class="badge-genre">${book.genre}</span>
+                  <span class="badge-status ${statusClass}">${book.status}</span>
+                  <p class="copies-left">Disponibles: ${book.availability}</p>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-borrow" onclick="borrowBook(${book.id})">Prestar</button>
+                <button class="btn-return" onclick="deleteBook(${book.id})">Eliminar</button>
+              </div>
+            `;
+            
+            bookList.appendChild(item);
+        }
     } catch (error) {
         console.error('Error al consultar a la API', error);
         bookList.innerHTML = '<p style="color: #ff6b6b;">Error al cargar el catálogo. Inténtalo de nuevo.</p>';
