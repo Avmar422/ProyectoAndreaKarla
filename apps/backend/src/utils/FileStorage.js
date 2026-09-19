@@ -3,7 +3,7 @@ const path = require("path");
 
 const dataPath = path.join(__dirname, '../data/libros.json');
 
-const leerJson = async (filePath, defaultValue = []) => {
+const leerJson = async (filePath = dataPath, defaultValue = []) => {
   try {
     const contenido = await fs.readFile(filePath, "utf8"); 
     return JSON.parse(contenido);  
@@ -16,7 +16,7 @@ const leerJson = async (filePath, defaultValue = []) => {
   }
 };
 
-const escribirJson = async (filePath, data) => {
+const escribirJson = async (filePath = dataPath, data) => {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8"); 
 };
