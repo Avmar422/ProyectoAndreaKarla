@@ -25,36 +25,6 @@
     "prestamos": []
   },
   {
-    "id": 3,
-    "titulo": "La sombra del viento",
-    "autor": "Carlos Ruiz Zafón",
-    "genero": "Ficción",
-    "sinopsis": "Un joven descubre un libro maldito en el Cementerio de los Libros Olvidados, desatando un misterio que cambiará su vida en la Barcelona del siglo XX.",
-    "estado": "Bueno",
-    "disponibilidad": "No disponible",
-    "prestamos": [
-      {
-        "usuario": "Carlos Pérez",
-        "fecha_prestamo": "2026-09-17",
-        "fecha_devolucion": "2026-09-17"
-      },
-      {
-        "usuario": "Carlos Lopez",
-        "fecha_prestamo": "2026-09-17"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "titulo": "Los siete maridos de Evelyn Hugo",
-    "autor": "Taylor Jenkins Reid",
-    "genero": "Ficción",
-    "sinopsis": "Una anciana e icónica estrella de Hollywood decide contar la verdadera y glamorosa historia de su vida y de sus siete matrimonios a una reportera desconocida.",
-    "estado": "Malo",
-    "disponibilidad": "Disponible",
-    "prestamos": []
-  },
-  {
     "id": 5,
     "titulo": "El gran Gatsby",
     "autor": "F. Scott Fitzgerald",
@@ -152,16 +122,6 @@
     "sinopsis": "El experto en simbología Robert Langdon investiga un asesinato en el Museo del Louvre que lo lleva a descubrir una sociedad secreta y un secreto religioso milenario.",
     "estado": "Bueno",
     "disponibilidad": "Reservado",
-    "prestamos": []
-  },
-  {
-    "id": 14,
-    "titulo": "La verdad sobre el caso Harry Quebert",
-    "autor": "Joël Dicker",
-    "genero": "Misterio",
-    "sinopsis": "Un joven escritor intenta salvar a su mentor, acusado del asesinato de una adolescente desaparecida treinta años atrás en un pacífico pueblo de EE. UU.",
-    "estado": "Malo",
-    "disponibilidad": "Disponible",
     "prestamos": []
   },
   {
