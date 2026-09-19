@@ -4,7 +4,7 @@ const formBook = document.querySelector('#add-book-form');
 const searchBox = document.querySelector('#search-box');
 const searchButton = document.querySelector('#search-button');
 
-const API_URL = 'https://proyectoandreakarla.onrender.com/api/';      //'http://localhost:3000/api/libros';
+const API_URL = 'https://proyectoandreakarla.onrender.com/api/libros';      //'http://localhost:3000/api/libros';
 
 // Display de libros
 const display = (books) => {
