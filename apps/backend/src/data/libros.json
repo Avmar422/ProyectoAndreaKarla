@@ -1,0 +1,268 @@
+[
+  {
+    "id": 1,
+    "titulo": "Ficciones",
+    "autor": "Jorge Luis Borges",
+    "genero": "Ficción",
+    "sinopsis": "Una colección de relatos laberínticos y filosóficos que exploran temas como el infinito, los espejos, el tiempo y las realidades alternativas.",
+    "estado": "Bueno",
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "María Pérez",
+        "fecha_prestamo": "2026-09-17"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Cien años de soledad",
+    "autor": "Gabriel García Márquez",
+    "genero": "Ficción",
+    "sinopsis": "La crónica de la familia Buendía a lo largo de siete generaciones en el mítico e inolvidable pueblo de Macondo.",
+    "estado": "Delicado",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 5,
+    "titulo": "El gran Gatsby",
+    "autor": "F. Scott Fitzgerald",
+    "genero": "Ficción",
+    "sinopsis": "Una crítica al sueño americano a través de la obsesión del misterioso millonario Jay Gatsby por recuperar a su antiguo amor, Daisy Buchanan.",
+    "estado": "Delicado",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 6,
+    "titulo": "Sapiens: De animales a dioses",
+    "autor": "Yuval Noah Harari",
+    "genero": "No ficción",
+    "sinopsis": "Un recorrido fascinante por la evolución de la humanidad, desde los primeros homínidos hasta los avances tecnológicos y sociales del siglo XXI.",
+    "estado": "Bueno",
+    "disponibilidad": "Reservado",
+    "prestamos": []
+  },
+  {
+    "id": 7,
+    "titulo": "El gen egoísta",
+    "autor": "Richard Dawkins",
+    "genero": "No ficción",
+    "sinopsis": "Una obra que revolucionó la biología al proponer que la evolución se centra en los genes y no en los individuos, moldeando nuestro comportamiento.",
+    "estado": "Malo",
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "Arturo",
+        "fecha_prestamo": "2026-09-17"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Pensar rápido, pensar despacio",
+    "autor": "Daniel Kahneman",
+    "genero": "No ficción",
+    "sinopsis": "Un análisis profundo de los dos sistemas que dirigen nuestra mente: uno rápido e intuitivo, y otro lento, deliberativo y lógico.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 9,
+    "titulo": "El imperio del dolor",
+    "autor": "Patrick Radden Keefe",
+    "genero": "No ficción",
+    "sinopsis": "La demoledora historia de la dinastía Sackler, la familia multimillonaria detrás de la crisis y epidemia de opiodes en los Estados Unidos.",
+    "estado": "Delicado",
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "Carlos Gómez",
+        "fecha_prestamo": "2026-06-01"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Armas, gérmenes y acero",
+    "autor": "Jared Diamond",
+    "genero": "No ficción",
+    "sinopsis": "Una explicación de cómo los factores geográficos y ambientales, y no la genética, determinaron el dominio de unas civilizaciones sobre otras.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 11,
+    "titulo": "El sabueso de los Baskerville",
+    "autor": "Arthur Conan Doyle",
+    "genero": "Misterio",
+    "sinopsis": "Sherlock Holmes y el doctor Watson investigan la misteriosa muerte de un aristócrata vinculada a la maldición de un perro fantasmal.",
+    "estado": "Malo",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 12,
+    "titulo": "Diez negritos (Y no quedó ninguno)",
+    "autor": "Agatha Christie",
+    "genero": "Misterio",
+    "sinopsis": "Diez personas sin relación aparente son invitadas a una isla privada, donde empiezan a ser asesinadas una a una siguiendo una vieja canción infantil.",
+    "estado": "Delicado",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 13,
+    "titulo": "El código Da Vinci",
+    "autor": "Dan Brown",
+    "genero": "Misterio",
+    "sinopsis": "El experto en simbología Robert Langdon investiga un asesinato en el Museo del Louvre que lo lleva a descubrir una sociedad secreta y un secreto religioso milenario.",
+    "estado": "Bueno",
+    "disponibilidad": "Reservado",
+    "prestamos": []
+  },
+  {
+    "id": 15,
+    "titulo": "El silencio de los corderos",
+    "autor": "Thomas Harris",
+    "genero": "Misterio",
+    "sinopsis": "La joven agente del FBI Clarice Starling busca la ayuda del brillante y antropófago psiquiatra Hannibal Lecter para atrapar a otro asesino en serie en activo.",
+    "estado": "Bueno",
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "Ana Torres",
+        "fecha_prestamo": "2026-06-12"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "Dune",
+    "autor": "Frank Herbert",
+    "genero": "Ciencia ficción",
+    "sinopsis": "En el desértico planeta Arrakis, el joven Paul Atreides se ve envuelto en una lucha de poder político, religioso y ecológico por el control del recurso más valioso del universo.",
+    "estado": "Delicado",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 17,
+    "titulo": "Neuromante",
+    "autor": "William Gibson",
+    "genero": "Ciencia ficción",
+    "sinopsis": "Un hacker informático retirado a la fuerza es contratado para realizar un hackeo definitivo a una inteligencia artificial dentro de la red del ciberespacio.",
+    "estado": "Malo",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 18,
+    "titulo": "¿Sueñan los androides con ovejas eléctricas?",
+    "autor": "Philip K. Dick",
+    "genero": "Ciencia ficción",
+    "sinopsis": "En un mundo postapocalíptico, un cazador de recompensas tiene la misión de retirar a un grupo de androides rebeldes que intentan pasar por humanos.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 19,
+    "titulo": "El problema de los tres cuerpos",
+    "autor": "Cixin Liu",
+    "genero": "Ciencia ficción",
+    "sinopsis": "Una astrofísica china envía un mensaje al espacio exterior durante la Revolución Cultural, provocando una inminente amenaza de invasión extraterrestre.",
+    "estado": "Delicado",
+    "disponibilidad": "No disponible",
+    "prestamos": [
+      {
+        "usuario": "Javier Ruiz",
+        "fecha_prestamo": "2026-06-14"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "Fundación",
+    "autor": "Isaac Asimov",
+    "genero": "Ciencia ficción",
+    "sinopsis": "El científico Hari Seldon utiliza la \"psicohistoria\" para predecir la caída del Imperio Galáctico y crea una fundación para preservar el conocimiento humano.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 21,
+    "titulo": "Steve Jobs",
+    "autor": "Walter Isaacson",
+    "genero": "Biografía",
+    "sinopsis": "Basada en más de cuarenta entrevistas, narra la intensa e innovadora vida del cofundador de Apple, sus obsesiones y su revolución tecnológica.",
+    "estado": "Malo",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 22,
+    "titulo": "Diario de Ana Frank",
+    "autor": "Ana Frank",
+    "genero": "Biografía",
+    "sinopsis": "El testimonio real e íntimo de una niña judía escondida junto a su familia en Ámsterdam durante la ocupación nazi en la Segunda Guerra Mundial.",
+    "estado": "Delicado",
+    "disponibilidad": "Reservado",
+    "prestamos": []
+  },
+  {
+    "id": 23,
+    "titulo": "Leonardo da Vinci",
+    "autor": "Walter Isaacson",
+    "genero": "Biografía",
+    "sinopsis": "Un retrato detallado que conecta el arte, la ciencia y la insaciable curiosidad del genio renacentista más polifacético de la historia.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 24,
+    "titulo": "Malala: Mi historia",
+    "autor": "Malala Yousafzai (con Christina Lamb)",
+    "genero": "Biografía",
+    "sinopsis": "La historia de la joven pakistaní que desafió a los talibanes para defender el derecho a la educación de las niñas, sobreviviendo a un atentado en el proceso.",
+    "estado": "Malo",
+    "disponibilidad": "Disponible",
+    "prestamos": []
+  },
+  {
+    "id": 25,
+    "titulo": "Una tierra prometida",
+    "autor": "Barack Obama",
+    "genero": "Biografía",
+    "sinopsis": "Memorias del expresidente de los Estados Unidos que relatan su formación política, su histórica campaña electoral y sus primeros años en la Casa Blanca.",
+    "estado": "Delicado",
+    "disponibilidad": "Disponible",
+    "prestamos": [
+      {
+        "usuario": "Lucía Méndez",
+        "fecha_prestamo": "2026-06-05",
+        "fecha_devolucion": "2026-09-17"
+      },
+      {
+        "usuario": "María Pérez",
+        "fecha_prestamo": "2026-09-17",
+        "fecha_devolucion": "2026-09-17"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "titulo": "Las Crónicas de Aethelgard: El Despertar de las Sombras",
+    "autor": "Kaelen Vane",
+    "genero": "Ficción",
+    "sinopsis": "En un mundo donde los fragmentos de lunas rotas flotan sobre océanos de ébano, un joven tejedor de hechizos descubre un secreto prohibido que amenaza con romper el equilibrio entre los reinos celestiales y los abismos.",
+    "estado": "Bueno",
+    "disponibilidad": "No disponible",
+    "prestamos": []
+  }
+]
