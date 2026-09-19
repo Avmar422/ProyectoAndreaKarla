@@ -53,26 +53,13 @@
         <div class="add-book">
           <h2>Agregar Nuevo Libro</h2>
           <form id="add-book-form">
-            <input type="text" id="title" placeholder="Título" required />
-            <input type="text" id="author" placeholder="Autor" required />
-            <input type="text" id="genre" placeholder="Género" required />
-            <input type="text" id="synopsis" placeholder="Sinopsis" required />
+            <input type="text" id="titulo" placeholder="Título" required />
+            <input type="text" id="autor" placeholder="Autor" required />
+            <input type="text" id="genero" placeholder="Género" required />
+            <input type="text" id="sinopsis" placeholder="Sinopsis" required />
+            <input type="text" id="estado" placeholder="Estado (ej. Bueno)" required />
+            <input type="text" id="disponibilidad" placeholder="Disponibilidad (ej. Disponible)" required />
             
-            
-            <select id="status" required>
-                <option value="">Selecciona el estado físico</option>
-                <option value="Bueno">Bueno</option>
-                <option value="Delicado">Delicado</option>
-                <option value="Malo">Malo</option>
-            </select>
-
-            
-            <select id="availability" required>
-                <option value="">Selecciona disponibilidad</option>
-                <option value="Disponible">Disponible</option>
-                <option value="No disponible">No disponible</option>
-            </select>
-
             <button class="btn" type="submit">Guardar Libro</button>
           </form>
         </div>
@@ -84,4 +71,3 @@
     <script src="./js/app.js"></script>
   </body>
 </html>
-

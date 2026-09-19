@@ -88,14 +88,14 @@ searchButton.addEventListener('click', buscarBookPorId);
 formBook.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const titleInput = document.querySelector('#title').value.trim();
-    const authorInput = document.querySelector('#author').value.trim();
-    const genreInput = document.querySelector('#genre').value.trim();
-    const synopsisInput = document.querySelector('#synopsis').value.trim();
-    const statusInput = document.querySelector('#status').value.trim();
-    const availabilityInput = document.querySelector('#availability').value.trim();
+    const tituloInput = document.querySelector('#titulo').value.trim();
+    const autorInput = document.querySelector('#autor').value.trim();
+    const generoInput = document.querySelector('#genero').value.trim();
+    const sinopsisInput = document.querySelector('#sinopsis').value.trim();
+    const estadoInput = document.querySelector('#estado').value.trim();
+    const disponibilidadInput = document.querySelector('#disponibilidad').value.trim();
 
-    if (!titleInput || !authorInput) return;
+    if (!tituloInput || !autorInput) return;
 
     try {
         const response = await fetch(API_URL, {
@@ -104,12 +104,12 @@ formBook.addEventListener('submit', async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                titulo: titleInput,
-                autor: authorInput,
-                genero: genreInput,
-                sinopsis: synopsisInput,
-                estado: statusInput,
-                disponibilidad: availabilityInput
+                titulo: tituloInput,
+                autor: autorInput,
+                genero: generoInput,
+                sinopsis: sinopsisInput,
+                estado: estadoInput,
+                disponibilidad: disponibilidadInput
             })
         });
 
@@ -126,7 +126,7 @@ formBook.addEventListener('submit', async (event) => {
               <div class="book-card-content">
                 <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
                 <div class="book-info">
-                  <h2 class="book-title">✨ ${newBook.titulo} (Nuevo)</h2>
+                  <h2 class="book-title">${newBook.titulo} (Nuevo)</h2>
                   <p class="book-author">Autor: ${newBook.autor}</p>   
                   <span class="badge-genre">${newBook.genero}</span>    
                   <span class="badge-status ${statusClass}">${newBook.estado}</span> 
@@ -142,7 +142,8 @@ formBook.addEventListener('submit', async (event) => {
             bookList.prepend(item);
             formBook.reset();
         } else {
-            console.error('Error al registrar el libro', response.statusText);
+            const errorText = await response.text();
+            console.error('Error al registrar el libro:', errorText);
         }
     } catch (error) {
         console.error('Error al agregar libro:', error);
@@ -193,4 +194,3 @@ if (searchBox) {
 
 // Cargar la lista automáticamente al iniciar la página
 window.onload = obtenerBooks;
-

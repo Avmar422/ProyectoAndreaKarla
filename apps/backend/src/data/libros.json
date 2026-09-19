@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1,
+    "titulo": "Un mundo feliz",
+    "autor": "Aldous Huxley",
+    "genero": "Ciencia ficción",
+    "sinopsis": "Una sociedad futurista condicionada genéticamente donde la individualidad ha sido eliminada.",
+    "estado": "Delicado",
+    "disponibilidad": "No disponible",
+    "prestamos": []
+  }
+]
