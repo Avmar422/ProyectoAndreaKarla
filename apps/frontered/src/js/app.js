@@ -62,8 +62,31 @@ const buscarBookPorId = async () => {
 
         if (response.ok) {
             const book = await response.json();
-            // Pintamos el resultado usando la función displayBooks pasándote un array con el libro encontrado
-            displayBooks([book]);
+            bookList.innerHTML = '';
+
+            const item = document.createElement('div');
+            item.className = 'book-card';
+            
+            const statusClass = book.status === 'Disponible' ? 'status-available' : 'status-borrowed';
+
+            item.innerHTML = `
+              <div class="book-card-content">
+                <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
+                <div class="book-info">
+                  <h2 class="book-title">${book.title}</h2>
+                  <p class="book-author">Autor: ${book.author}</p>
+                  <span class="badge-genre">${book.genre}</span>
+                  <span class="badge-status ${statusClass}">${book.status}</span>
+                  <p class="copies-left">Disponibles: ${book.availability}</p>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-borrow" onclick="borrowBook(${book.id})">Prestar</button>
+                <button class="btn-return" onclick="deleteBook(${book.id})">Eliminar</button>
+              </div>
+            `;
+            
+            bookList.appendChild(item);
         } else if (response.status === 404) {
             bookList.innerHTML = `<p style="color: #ff6b6b;">No se encontró ningún libro con el ID #${id}.</p>`;
         } else {
@@ -137,8 +160,6 @@ formBook.addEventListener('submit', async (event) => {
         } else {
             console.error('Error al registrar el libro', response.statusText);
         }
-
-
     } catch (error) {
         console.error('Error al agregar libro:', error);
     }
@@ -174,18 +195,6 @@ async function deleteBook(id) {
     }
 }
 
-
-// Conexión del input de búsqueda (`#search-box`) para buscar por ID automáticamente si escribes un número
-if (searchBox) {
-    searchBox.addEventListener('input', (e) => {
-        const value = e.target.value.trim();
-        if (value === '') {
-            obtenerBooks();
-        } else if (!isNaN(value)) {
-            getBookById(value);
-        }
-    });
-}
 
 // Cargar la lista automáticamente al iniciar la página
 window.onload = obtenerBooks;
