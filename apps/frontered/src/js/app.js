@@ -114,9 +114,9 @@ formBook.addEventListener('submit', async (event) => {
         });
 
         if (response.ok) {
-            formBook.reset();         
-            obtenerBooks();           
-            bookList.scrollIntoView({ behavior: 'smooth' }); 
+            formBook.reset();                 
+            await obtenerBooks();             
+            bookList.scrollIntoView({ behavior: 'smooth', block: 'start' });  
         } else {
             const errorText = await response.text();
             console.error('Error al registrar el libro:', errorText);

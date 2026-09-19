@@ -8,5 +8,15 @@
     "estado": "Bueno",
     "disponibilidad": "No disponible",
     "prestamos": []
+  },
+  {
+    "id": 2,
+    "titulo": "El amor en los tiempos del cólera",
+    "autor": "Gabriel García Márquez",
+    "genero": "Ficción",
+    "sinopsis": "Una historia de amor atemporal que perdura a lo largo de los años en el Caribe colombiano.",
+    "estado": "Bueno",
+    "disponibilidad": "Disponible",
+    "prestamos": []
   }
 ]
