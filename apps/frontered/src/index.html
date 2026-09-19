@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookFlow</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <img src="./assets/logo.png" alt="Logo" />
+      </div>
+      <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Catálogo</a></li>
+        <li><a href="#">Cuenta</a></li>
+        <li><a href="#">Configuración</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header class="header-main">
+        <h1>Catálogo de Libros</h1>
+
+        <div class="filters">
+          <select name="availability" id="availability-filter">
+            <option>Todos</option>
+            <option>Disponible</option>
+            <option>Prestado</option>
+            <option>Reservado</option>
+          </select>
+          
+          <select name="genre" id="genre-filter">
+            <option>Todos</option>
+            <option>Ficción</option>
+            <option>No Ficción</option>
+            <option>Misterio</option>
+            <option>Ciencia Ficción</option>
+            <option>Biografía</option>
+          </select>
+
+          <input
+          type="search"
+          placeholder="Buscar por título, autor, ID..."
+          id="search-box"/>
+          <button class="btn" id="search-button" type="button">Buscar</button>
+        </div>
+      </header>
+
+      <section>
+        <div class="add-book">
+          <h2>Agregar Nuevo Libro</h2>
+          <form id="add-book-form">
+            <input type="text" id="titulo" placeholder="Título" required />
+            <input type="text" id="autor" placeholder="Autor" required />
+            <input type="text" id="genero" placeholder="Género" required />
+            <input type="text" id="sinopsis" placeholder="Sinopsis" required />
+            <input type="text" id="estado" placeholder="Estado (ej. Bueno)" required />
+            <input type="text" id="disponibilidad" placeholder="Disponibilidad (ej. Disponible)" required />
+            
+            <button class="btn" type="submit">Guardar Libro</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="book-list" id="book-list">
+      </section>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
