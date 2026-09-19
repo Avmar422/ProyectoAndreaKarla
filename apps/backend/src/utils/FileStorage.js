@@ -8,12 +8,10 @@ const leerJson = async (filePath, defaultValue = []) => {
     const contenido = await fs.readFile(filePath, "utf8"); 
     return JSON.parse(contenido);  
   } catch (error) {
-
     if (error.code !== "ENOENT") {
       throw new Error(`No se pudo leer ${path.basename(filePath)}`);
     }
 
-    await escribirJson(filePath, defaultValue);
     return defaultValue;
   }
 };
