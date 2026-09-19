@@ -6,15 +6,47 @@ const searchButton = document.querySelector('#search-button');
 
 const API_URL = 'http://localhost:3000/api/libros';
 
+// Display de libros
+const display = (books) => {
+    bookList.innerHTML = '';
+
+    for (let book of books) {
+        const item = document.createElement('div');
+        item.className = 'book-card';
+        
+        const statusClass = book.estado === 'Bueno' ? 'status-available' : 'status-borrowed';
+
+        item.innerHTML = `
+          <div class="book-card-content">
+            <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
+            <div class="book-info">
+              <h2 class="book-title">${book.titulo}</h2>
+              <p class="book-author">Autor: ${book.autor}</p>
+              <span class="badge-genre">${book.genero}</span>
+              <span class="badge-status ${statusClass}">${book.estado}</span>
+              <p class="copies-left">Disponibilidad: ${book.disponibilidad}</p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-borrow" onclick="borrowBook(${book.id})">Prestar</button>
+            <button class="btn-return" onclick="deleteBook(${book.id})">Eliminar</button>
+          </div>
+        `;
+        
+        bookList.appendChild(item);
+    }
+};
+
 // 1. Obtener todos los libros (GET general)
 const obtenerBooks = async () => {
     try {
         bookList.innerHTML = '<p style="color: #c8a051;">Cargando catálogo de libros...</p>';  
         const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Error al obtener los libros');
-        const books = await response.json();
         
-        displayBooks(books);
+        if (!response.ok) throw new Error('Error al obtener los libros');
+        
+        const books = await response.json();
+        display(books);
     } catch (error) {
         console.error('Error al consultar a la API', error);
         bookList.innerHTML = '<p style="color: #ff6b6b;">Error al cargar el catálogo. Inténtalo de nuevo.</p>';
@@ -36,10 +68,11 @@ const buscarBookPorId = async () => {
 
         if (response.ok) {
             const book = await response.json();
-            // Pintamos el resultado usando la función displayBooks pasándote un array con el libro encontrado
-            displayBooks([book]);
+            display([book]);
+
         } else if (response.status === 404) {
             bookList.innerHTML = `<p style="color: #ff6b6b;">No se encontró ningún libro con el ID #${id}.</p>`;
+            
         } else {
             console.error('Error en la búsqueda:', response.statusText);
             bookList.innerHTML = '<p style="color: #ff6b6b;">Error en la respuesta del servidor.</p>';
@@ -50,7 +83,6 @@ const buscarBookPorId = async () => {
     }
 };
 searchButton.addEventListener('click', buscarBookPorId);
-
 
 // 3. Registrar un nuevo libro mediante el formulario (POST)
 formBook.addEventListener('submit', async (event) => {
@@ -98,7 +130,7 @@ formBook.addEventListener('submit', async (event) => {
                   <p class="book-author">Autor: ${newBook.autor}</p>   
                   <span class="badge-genre">${newBook.genero}</span>    
                   <span class="badge-status ${statusClass}">${newBook.estado}</span> 
-                  <p class="copies-left">Disponibles: ${newBook.disponibilidad}</p> 
+                  <p class="copies-left">Disponibilidad: ${newBook.disponibilidad}</p> 
                 </div>
               </div>
               <div class="card-actions">
@@ -112,8 +144,6 @@ formBook.addEventListener('submit', async (event) => {
         } else {
             console.error('Error al registrar el libro', response.statusText);
         }
-
-
     } catch (error) {
         console.error('Error al agregar libro:', error);
     }
@@ -127,7 +157,7 @@ async function borrowBook(id) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ status: 'No disponible' })
+            body: JSON.stringify({ disponibilidad: 'No disponible' })
         });
         if (!response.ok) throw new Error('Error al prestar el libro');
         obtenerBooks();
@@ -149,8 +179,7 @@ async function deleteBook(id) {
     }
 }
 
-
-// Conexión del input de búsqueda (`#search-box`) para buscar por ID automáticamente si escribes un número
+// Conexión del input de búsqueda (`#search-box`)
 if (searchBox) {
     searchBox.addEventListener('input', (e) => {
         const value = e.target.value.trim();
