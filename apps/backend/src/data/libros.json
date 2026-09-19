@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "titulo": "Un mundo feliz",
-    "autor": "Aldous Huxley",
-    "genero": "Ciencia ficción",
-    "sinopsis": "Una sociedad futurista condicionada genéticamente donde la individualidad ha sido eliminada.",
-    "estado": "Delicado",
+    "titulo": "El principito",
+    "autor": "Antoine de Saint-Exupéry",
+    "genero": "Ficción",
+    "sinopsis": "Un joven príncipe emprende un viaje interplanetario que le enseña valiosas lecciones sobre la amistad y el amor.",
+    "estado": "Bueno",
     "disponibilidad": "No disponible",
     "prestamos": []
   }
