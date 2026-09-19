@@ -72,32 +72,33 @@ formBook.addEventListener('submit', async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                title: titleInput,
-                author: authorInput,
-                genre: genreInput,
-                synopsis: synopsisInput,
-                status: statusInput,
-                availability: availabilityInput
+                titulo: titleInput,
+                autor: authorInput,
+                genero: genreInput,
+                sinopsis: synopsisInput,
+                estado: statusInput,
+                disponibilidad: availabilityInput
             })
         });
 
         if (response.ok) {
-            const newBook = await response.json();
+            const data = await response.json();
+            const newBook = data.libro;
             
             const item = document.createElement('div');
             item.className = 'book-card';
             
-            const statusClass = newBook.status === 'Disponible' ? 'status-available' : 'status-borrowed';
+            const statusClass = newBook.estado === 'Bueno' ? 'status-available' : 'status-borrowed';
 
             item.innerHTML = `
               <div class="book-card-content">
                 <img src="./assets/default-cover.png" alt="Cover" class="book-cover" />
                 <div class="book-info">
-                  <h2 class="book-title">✨ ${newBook.title} (Nuevo)</h2>
-                  <p class="book-author">Autor: ${newBook.author}</p>
-                  <span class="badge-genre">${newBook.genre}</span>
-                  <span class="badge-status ${statusClass}">${newBook.status}</span>
-                  <p class="copies-left">Disponibles: ${newBook.availability}</p>
+                  <h2 class="book-title">✨ ${newBook.titulo} (Nuevo)</h2>
+                  <p class="book-author">Autor: ${newBook.autor}</p>   
+                  <span class="badge-genre">${newBook.genero}</span>    
+                  <span class="badge-status ${statusClass}">${newBook.estado}</span> 
+                  <p class="copies-left">Disponibles: ${newBook.disponibilidad}</p> 
                 </div>
               </div>
               <div class="card-actions">
@@ -126,7 +127,7 @@ async function borrowBook(id) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ status: 'Prestado' })
+            body: JSON.stringify({ status: 'No disponible' })
         });
         if (!response.ok) throw new Error('Error al prestar el libro');
         obtenerBooks();
@@ -156,7 +157,7 @@ if (searchBox) {
         if (value === '') {
             obtenerBooks();
         } else if (!isNaN(value)) {
-            getBookById(value);
+            buscarBookPorId();
         }
     });
 }
