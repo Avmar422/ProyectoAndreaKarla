@@ -254,5 +254,15 @@
         "fecha_devolucion": "2026-09-17"
       }
     ]
+  },
+  {
+    "id": 26,
+    "titulo": "Las Crónicas de Aethelgard: El Despertar de las Sombras",
+    "autor": "Kaelen Vane",
+    "genero": "Ficción",
+    "sinopsis": "En un mundo donde los fragmentos de lunas rotas flotan sobre océanos de ébano, un joven tejedor de hechizos descubre un secreto prohibido que amenaza con romper el equilibrio entre los reinos celestiales y los abismos.",
+    "estado": "Bueno",
+    "disponibilidad": "No disponible",
+    "prestamos": []
   }
 ]
