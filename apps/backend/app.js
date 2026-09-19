@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const librosRouter = require(path.join(process.cwd(), "src/routes/libros.routes"));
+const librosRouter = require(path.join(__dirname, "src/routes/libros.routes"));
 
 app.use('/api/libros', librosRouter);
 
